@@ -1,0 +1,39 @@
+name: Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    name: ${{ matrix.os }} - ${{ matrix.build-preset }}
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # Linux (Ninja, single-config)
+          - os: ubuntu-latest
+            configure-preset: linux-ninja-debug
+            build-preset: linux-ninja-debug
+
+          # Windows (MSVC, multi-config)
+          - os: windows-latest
+            configure-preset: windows-msvc
+            build-preset: windows-msvc-debug
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup CMake
+        uses: lukka/get-cmake@latest
+
+      - name: Configure
+        run: cmake --preset ${{ matrix.configure-preset }}
+
+      - name: Build
+        run: cmake --build --preset ${{ matrix.build-preset }}

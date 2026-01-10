@@ -1,0 +1,51 @@
+name: Link code examples in README
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - "questions/**"
+
+jobs:
+  sync-links:
+    runs-on: ubuntu-latest
+
+    concurrency:
+      group: docs-sync
+      cancel-in-progress: false
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Link examples to questions
+        run: |
+          python scripts/link_examples.py
+
+      - name: Commit updated question files
+        run: |
+          if git diff --quiet questions; then
+            echo "Questions already up to date"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add questions
+          git commit -m "docs: add code example links"
+
+          git pull --rebase origin main
+          git push origin main
