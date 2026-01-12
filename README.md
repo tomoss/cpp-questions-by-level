@@ -16,6 +16,10 @@ A collection of C++ questions with answers and code examples.
 - [22. What is the diamond problem?](questions/level-2/22-diamond-problem.md)
 - [23. Explain virtual inheritance.](questions/level-2/23-virtual-inheritance.md)
 
+### Level 3
+
+- [18. What is std::lock_guard vs std::unique_lock?](questions/level-3/18-locks.md)
+
 <!-- GENERATED:END -->
 
 ## 🏗️ Build Instructions for examples
