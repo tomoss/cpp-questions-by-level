@@ -142,17 +142,17 @@ private:
     int data;
 public:
     void setData(int value) { data = value; }
-    void display() { std::cout << "Base class: " << data << std::endl; }
+    int getData() { return data; }
 };
 
-class Derived1 : virtual public Base {};
+class Derived1 : public virtual Base {};
 
-class Derived2 : virtual public Base {};
+class Derived2 : public virtual Base {};
 
 class FinalDerived : public Derived1, public Derived2 {
 public:
     void showData() {
-        display();
+        std::cout << getData() << std::endl;
     }
 };
 

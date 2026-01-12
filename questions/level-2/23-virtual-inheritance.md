@@ -40,8 +40,8 @@ public:
     void show() { cout << "A" << endl; }
 };
 
-class B : virtual public A { };
-class C : virtual public A { };
+class B : public virtual A { };
+class C : public virtual A { };
 class D : public B, public C { };
 
 int main() {
