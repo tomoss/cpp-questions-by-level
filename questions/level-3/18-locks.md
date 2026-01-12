@@ -80,3 +80,5 @@ void complex_function() {
 
 ---
 
+## 🧪 Code example
+- [`../../examples/level-3/18-locks`](../../examples/level-3/18-locks)
