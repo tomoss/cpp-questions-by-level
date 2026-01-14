@@ -237,3 +237,6 @@ Examples of operations that invalidate pointers:
 **Static analyzers** - Clang Static Analyzer. Cppcheck. Can find issues without running the code.
 
 ---
+
+## 🧪 Code example
+- [`../../examples/level-2/15-dangling-pointer`](../../examples/level-2/15-dangling-pointer)
