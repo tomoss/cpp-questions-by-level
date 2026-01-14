@@ -25,4 +25,18 @@ A collection of C++ questions with answers and code examples.
 
 ## 🏗️ Build Instructions for examples
 
-TODO
+### Configure Workspace (Run Once)
+
+🖥️ Windows (MSVC) - ```cmake --preset windows-msvc```
+
+🖥️ Windows (MinGW - Debug) - ```cmake --preset windows-mingw-debug ```
+
+🐧 Linux (Ninja - Debug) - ```cmake --preset linux-ninja-debug```
+
+### Build All (Debug)
+
+🖥️ Windows (MSVC) - ```cmake --build --preset windows-msvc-debug```
+
+🖥️ Windows (MinGW - Debug) - ```cmake --build --preset windows-mingw-debug```
+
+🐧 Linux (Ninja - Debug) - ```cmake --build --preset linux-ninja-debug```

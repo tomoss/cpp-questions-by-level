@@ -66,7 +66,7 @@ int& ref = getRef();
 
 ### 🔹View dangles (The std::string_view trap)
 
-Modern C++ introduced non-owning views like std::string_view and std::span. These are pointers in disguise and can dangle.
+Modern C++ introduced non-owning views like ```std::string_view``` and ```std::span```. These are pointers in disguise and can dangle.
 
 ```cpp
 // X BAD: The std::string is temporary.
@@ -154,7 +154,7 @@ void f() {
 
 ### 🔹Safe Observation with weak_ptr
 
-The only smart pointer designed to handle dangles gracefully. It does not keep the object alive but allows you to check if it still exists before accessing it. It only works in conjunction with std::shared_ptr
+The only smart pointer designed to handle dangles gracefully. It does not keep the object alive but allows you to check if it still exists before accessing it. It only works in conjunction with ```std::shared_ptr```.
 
 ```cpp
 std::shared_ptr<int> sp = std::make_shared<int>(10);
