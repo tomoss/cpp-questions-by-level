@@ -165,3 +165,6 @@ int main() {
 ```
 
 ---
+
+## 🧪 Code example
+- [`../../examples/level-1/16-friend-keyword`](../../examples/level-1/16-friend-keyword)
