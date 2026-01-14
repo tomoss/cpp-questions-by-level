@@ -23,8 +23,14 @@ int main() {
 
     // Slicing happens here!
     Shape myShape = myCircle;
-
-    // myShape no longer has the 'radius' member.
-    // Calling draw() on myShape will call Shape::draw(), not Circle::draw().
+    // Calls Shape's draw(), not Circle's
     myShape.draw();
+
+    // No slicing: reference preserves dynamic type
+    Shape& ref = myCircle;
+    ref.draw();   // Calls Circle::draw()
+
+    // No slicing: pointer preserves dynamic type
+    Shape* ptr = &myCircle;
+    ptr->draw();  // Calls Circle::draw()
 }

@@ -39,12 +39,23 @@ myCircle.radius = 10.0;
 // Slicing happens here!
 Shape myShape = myCircle;
 
-// myShape no longer has the 'radius' member.
-// Calling draw() on myShape will call Shape::draw(), not Circle::draw().
-myShape.draw();
+// myShape is now a pure Shape object.
+// The Circle part (including radius) is gone.
+// Virtual dispatch cannot reach Circle anymore.
+myShape.draw(); // Calls Shape::draw()
 ```
 
 Using **pointers** or **references** is the standard way to handle objects polymorphically in C++ and prevent object slicing.
+
+```cpp
+// No slicing: reference preserves dynamic type
+Shape& ref = myCircle;
+ref.draw();   // Calls Circle::draw()
+
+// No slicing: pointer preserves dynamic type
+Shape* ptr = &myCircle;
+ptr->draw();  // Calls Circle::draw()
+```
 
 ---
 
