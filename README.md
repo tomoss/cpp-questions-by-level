@@ -14,6 +14,7 @@ A collection of C++ questions with answers and code examples.
 ### Level 2
 
 - [15. What is a dangling pointer?](questions/level-2/15-dangling-pointer.md)
+- [20. What is object slicing?](questions/level-2/20-object-slicing.md)
 - [21. What is multiple inheritance? What are the problems with it?](questions/level-2/21-multiple-inheritance.md)
 - [22. What is the diamond problem?](questions/level-2/22-diamond-problem.md)
 - [23. Explain virtual inheritance.](questions/level-2/23-virtual-inheritance.md)
