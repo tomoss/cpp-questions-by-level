@@ -8,6 +8,7 @@ A collection of C++ questions with answers and code examples.
 
 ### Level 1
 
+- [16. What are friend functions and friend classes?](questions/level-1/16-friend-keyword.md)
 - [17. What is the `this` pointer?](questions/level-1/17-this-pointer.md)
 
 ### Level 2
