@@ -47,3 +47,6 @@ myShape.draw();
 Using **pointers** or **references** is the standard way to handle objects polymorphically in C++ and prevent object slicing.
 
 ---
+
+## 🧪 Code example
+- [`../../examples/level-2/20-object-slicing`](../../examples/level-2/20-object-slicing)
