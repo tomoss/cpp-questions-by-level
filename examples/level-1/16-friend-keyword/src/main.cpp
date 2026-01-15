@@ -7,7 +7,9 @@ private:
     int age;
 
 public:
-    Person(std::string n, int a) : name(n), age(a) {}
+    Person(std::string n, int a)
+        : name(n)
+        , age(a) {}
 
     friend std::ostream& operator<<(std::ostream& out, const Person& p);
 };

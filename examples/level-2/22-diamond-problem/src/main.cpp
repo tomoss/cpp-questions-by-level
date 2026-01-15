@@ -3,9 +3,14 @@
 class Base {
 private:
     int data;
+
 public:
-    void setData(int value) { data = value; }
-    int getData() { return data; }
+    void setData(int value) {
+        data = value;
+    }
+    int getData() {
+        return data;
+    }
 };
 
 class Derived1 : public Base {};

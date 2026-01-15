@@ -4,7 +4,7 @@
 class Shape {
 public:
     virtual void draw() const {
-        std::cout << "Drawing a generic shape." << std::endl; 
+        std::cout << "Drawing a generic shape." << std::endl;
     }
 };
 
@@ -12,7 +12,7 @@ public:
 class Circle : public Shape {
 public:
     double radius;
-    void draw() const override { 
+    void draw() const override {
         std::cout << "Drawing a circle with radius: " << radius << std::endl;
     }
 };
@@ -28,9 +28,9 @@ int main() {
 
     // No slicing: reference preserves dynamic type
     Shape& ref = myCircle;
-    ref.draw();   // Calls Circle::draw()
+    ref.draw(); // Calls Circle::draw()
 
     // No slicing: pointer preserves dynamic type
     Shape* ptr = &myCircle;
-    ptr->draw();  // Calls Circle::draw()
+    ptr->draw(); // Calls Circle::draw()
 }
