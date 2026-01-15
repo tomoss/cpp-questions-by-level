@@ -25,6 +25,10 @@ A collection of C++ questions with answers and code examples.
 - [18. What is std::lock_guard vs std::unique_lock?](questions/level-3/18-locks.md)
 - [25. What is mutable keyword in C++?](questions/level-3/25-mutable-keyword.md)
 
+### Level 4
+
+- [8. Explain inline namespaces.](questions/level-4/8-inline-namespaces.md)
+
 <!-- GENERATED:END -->
 
 ## 🏗️ Build Instructions for examples
