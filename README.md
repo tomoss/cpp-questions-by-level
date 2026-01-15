@@ -23,6 +23,7 @@ A collection of C++ questions with answers and code examples.
 ### Level 3
 
 - [18. What is std::lock_guard vs std::unique_lock?](questions/level-3/18-locks.md)
+- [25. What is mutable keyword in C++?](questions/level-3/25-mutable-keyword.md)
 
 <!-- GENERATED:END -->
 
