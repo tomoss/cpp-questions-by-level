@@ -35,7 +35,7 @@ foreach(main_src ${EXAMPLE_MAIN_FILES})
          ${src_dir}/*.cpp
     )
 
-    # collect headers (optional)
+    # collect headers
     file(GLOB example_headers
          CONFIGURE_DEPENDS
          ${example_dir}/include/*.h
