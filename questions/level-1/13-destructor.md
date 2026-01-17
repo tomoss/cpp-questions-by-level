@@ -223,3 +223,6 @@ With ```virtual ~Base()```
 * Then, ```~Base()``` is called, cleaning up the base part.
 
 ---
+
+## 🧪 Code example
+- [`../../examples/level-1/13-destructor`](../../examples/level-1/13-destructor)
