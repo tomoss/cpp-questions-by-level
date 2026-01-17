@@ -12,6 +12,7 @@ A collection of C++ questions with answers and code examples.
 - [16. What are friend functions and friend classes?](questions/level-1/16-friend-keyword.md)
 - [17. What is the `this` pointer?](questions/level-1/17-this-pointer.md)
 - [25. Can we overload the ```main()``` function?](questions/level-1/25-main-function.md)
+- [30. What are namespaces in C++? Why do we use them?](questions/level-1/30-namespaces.md)
 
 ### Level 2
 
