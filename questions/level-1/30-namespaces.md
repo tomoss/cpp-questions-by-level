@@ -1,5 +1,7 @@
 # 30. What are namespaces in C++? Why do we use them?
 
+## 💡Definition
+
 In C++, a **namespace** is a mechanism that allows the logical grouping of identifiers (variables, functions, classes, and other entities) under a common name.
 
 **Namespaces** prevent name conflicts between identifiers that have the same name but originate from different parts of a program or different libraries.
@@ -137,7 +139,7 @@ int main() {
 
 #### 3️⃣ ```using``` Directive (using namespace)
 
-***Best for:*** Very limited use, such as in short, simple .cpp files for tutorials or quick tests.
+**Best for:** Very limited use, such as in short, simple .cpp files for tutorials or quick tests.
 
 ⛔ Never use ```using namespace``` in header files.
 
@@ -240,11 +242,11 @@ P::run();
 
 ## 💡 Anonymous (unnamed) namespaces
 
-* An unnamed namespace automatically gives internal linkage to everything inside it — meaning it’s visible only in the current translation unit (file).
+An unnamed namespace automatically gives internal linkage to everything inside it — meaning it’s visible only in the current translation unit (file).
 
-* In simpler terms, an unnamed namespace makes its contents visible only within the current file. Think of it as a way to create "file-private" functions and variables.
+In simpler terms, an unnamed namespace makes its contents visible only within the current file. Think of it as a way to create "file-private" functions and variables.
 
-*Why use it:* Instead of marking things as ```static``` to limit their visibility to one file, you can put them in an anonymous namespace.
+**Why use it:** Instead of marking things as ```static``` to limit their visibility to one file, you can put them in an anonymous namespace.
 
 ```cpp
 // In myfile.cpp
