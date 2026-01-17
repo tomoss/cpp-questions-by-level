@@ -173,3 +173,6 @@ int main() {
 * **Move Semantics:** Move constructor and move assignment operator are provided to allow safe transfer of ownership of the resource.
 
 ---
+
+## 🧪 Code example
+- [`../../examples/level-2/36-raii`](../../examples/level-2/36-raii)
