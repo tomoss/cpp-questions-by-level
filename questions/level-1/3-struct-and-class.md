@@ -224,4 +224,5 @@ The choice between them is primarily about expressing intent to other developers
 
 ---
 
-
+## 🧪 Code example
+- [`../../code/level-1/3-struct-and-class`](../../code/level-1/3-struct-and-class)
