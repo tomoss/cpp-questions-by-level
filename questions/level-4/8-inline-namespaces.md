@@ -62,3 +62,5 @@ This allows:
 
 ---
 
+## 🧪 Code example
+- [`../../code/level-4/8-inline-namespaces`](../../code/level-4/8-inline-namespaces)

@@ -295,3 +295,5 @@ int main() {
 
 ---
 
+## 🧪 Code example
+- [`../../code/level-1/30-namespaces`](../../code/level-1/30-namespaces)

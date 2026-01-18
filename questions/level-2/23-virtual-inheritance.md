@@ -52,3 +52,5 @@ int main() {
 
 ---
 
+## 🧪 Code example
+- [`../../code/level-2/23-virtual-inheritance`](../../code/level-2/23-virtual-inheritance)

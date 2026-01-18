@@ -91,3 +91,5 @@ bool isSame(const Person& other) const {
 
 ---
 
+## 🧪 Code example
+- [`../../code/level-1/17-this-pointer`](../../code/level-1/17-this-pointer)
