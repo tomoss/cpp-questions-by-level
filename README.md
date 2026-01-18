@@ -48,14 +48,8 @@ A collection of C++ questions with answers and code examples.
 
 ### Build All (Debug)
 
-🖥️ Windows (MSVC, PowerShell)
+🖥️ Windows (MSVC, PowerShell) - ```cmake --build --preset windows-msvc-debug```
 
-```cmake --build --preset windows-msvc-debug -j $(Get-CimInstance Win32_Processor).NumberOfLogicalProcessors```
+🖥️ Windows (MinGW - Debug, PowerShell) - ```cmake --build --preset windows-mingw-debug```
 
-🖥️ Windows (MinGW - Debug, PowerShell)
-
-```cmake --build --preset windows-mingw-debug -j $(Get-CimInstance Win32_Processor).NumberOfLogicalProcessors```
-
-🐧 Linux (Ninja - Debug)
-
-```cmake --build --preset linux-ninja-debug -j $(nproc)```
+🐧 Linux (Ninja - Debug) - ```cmake --build --preset linux-ninja-debug -j $(nproc)```
