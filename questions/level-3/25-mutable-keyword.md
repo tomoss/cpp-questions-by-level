@@ -156,5 +156,3 @@ int main() {
 
 ---
 
-## 🧪 Code example
-- [`../../examples/level-3/25-mutable-keyword`](../../examples/level-3/25-mutable-keyword)

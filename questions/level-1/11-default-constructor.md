@@ -146,6 +146,3 @@ public:
 * Allows the constructor to remain trivial and optimizable, unlike an empty user-defined constructor.
 
 ---
-
-## 🧪 Code example
-- [`../../examples/level-1/11-default-constructor`](../../examples/level-1/11-default-constructor)

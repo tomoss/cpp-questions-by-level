@@ -7,26 +7,26 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 # ------------------------------------------------------------------------------
-# Discover example main files: examples/*/*/src/main.cpp
+# Discover example main files: code/*/*/src/main.cpp
 # ------------------------------------------------------------------------------
 
 file(GLOB_RECURSE EXAMPLE_MAIN_FILES
      CONFIGURE_DEPENDS
-     ${CMAKE_SOURCE_DIR}/examples/*/*/src/main.cpp
+     ${CMAKE_SOURCE_DIR}/code/*/*/src/main.cpp
 )
 
-message(STATUS "Searching examples in: ${CMAKE_SOURCE_DIR}/examples")
+message(STATUS "Searching code in: ${CMAKE_SOURCE_DIR}/code")
 message(STATUS "Found main files: ${EXAMPLE_MAIN_FILES}")
 
 if (EXAMPLE_MAIN_FILES STREQUAL "")
-    message(FATAL_ERROR "No examples found. Expected examples/*/*/src/main.cpp")
+    message(FATAL_ERROR "No code found. Expected code/*/*/src/main.cpp")
 endif()
 
 foreach(main_src ${EXAMPLE_MAIN_FILES})
 
     # src directory
     get_filename_component(src_dir ${main_src} DIRECTORY)
-    # example root directory
+    # code root directory
     get_filename_component(example_dir ${src_dir} DIRECTORY)
 
     # collect all cpp in src/
@@ -43,7 +43,7 @@ foreach(main_src ${EXAMPLE_MAIN_FILES})
     )
 
     # target name from relative path
-    file(RELATIVE_PATH rel_dir ${CMAKE_SOURCE_DIR}/examples ${example_dir})
+    file(RELATIVE_PATH rel_dir ${CMAKE_SOURCE_DIR}/code ${example_dir})
     string(REPLACE "/" "_" target_name ${rel_dir})
     string(REPLACE "\\" "_" target_name ${target_name})
 
@@ -67,7 +67,7 @@ foreach(main_src ${EXAMPLE_MAIN_FILES})
 
     # IDE grouping
     set_target_properties(${target_name} PROPERTIES
-        FOLDER "examples/${rel_dir}"
+        FOLDER "code/${rel_dir}"
     )
 
 endforeach()

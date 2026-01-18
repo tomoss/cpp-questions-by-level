@@ -224,5 +224,3 @@ With ```virtual ~Base()```
 
 ---
 
-## 🧪 Code example
-- [`../../examples/level-1/13-destructor`](../../examples/level-1/13-destructor)

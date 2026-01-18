@@ -165,5 +165,3 @@ int main() {
 
 ---
 
-## 🧪 Code example
-- [`../../examples/level-2/22-diamond-problem`](../../examples/level-2/22-diamond-problem)

@@ -191,5 +191,3 @@ public:
 
 ---
 
-## 🧪 Code example
-- [`../../examples/level-2/7-rule-of-three-five-zero`](../../examples/level-2/7-rule-of-three-five-zero)

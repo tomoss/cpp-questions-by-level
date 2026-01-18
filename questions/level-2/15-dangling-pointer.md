@@ -238,5 +238,3 @@ Examples of operations that invalidate pointers:
 
 ---
 
-## 🧪 Code example
-- [`../../examples/level-2/15-dangling-pointer`](../../examples/level-2/15-dangling-pointer)

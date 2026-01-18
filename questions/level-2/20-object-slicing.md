@@ -59,5 +59,3 @@ ptr->draw();  // Calls Circle::draw()
 
 ---
 
-## 🧪 Code example
-- [`../../examples/level-2/20-object-slicing`](../../examples/level-2/20-object-slicing)

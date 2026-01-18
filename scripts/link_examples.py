@@ -10,11 +10,11 @@ SECTION_TITLE = "## 🧪 Code example"
 def example_link(md_path: Path) -> str:
     """
     Build relative link from questions/<level>/<name>.md
-    to examples/<level>/<name>/
+    to code/<level>/<name>/
     """
     level = md_path.parent.name
     name = md_path.stem
-    rel = Path("..") / ".." / "examples" / level / name
+    rel = Path("..") / ".." / "code" / level / name
     return f"- [`{rel.as_posix()}`]({rel.as_posix()})\n"
 
 

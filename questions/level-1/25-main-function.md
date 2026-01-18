@@ -20,5 +20,3 @@ int main(int x) { return 0; }  // Error!
 
 ---
 
-## 🧪 Code example
-- [`../../examples/level-1/25-main-function`](../../examples/level-1/25-main-function)

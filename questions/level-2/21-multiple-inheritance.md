@@ -64,5 +64,3 @@ int main() {
 
 ---
 
-## 🧪 Code example
-- [`../../examples/level-2/21-multiple-inheritance`](../../examples/level-2/21-multiple-inheritance)
