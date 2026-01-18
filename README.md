@@ -52,4 +52,4 @@ A collection of C++ questions with answers and code examples.
 
 🖥️ Windows (MinGW - Debug) - ```cmake --build --preset windows-mingw-debug```
 
-🐧 Linux (Ninja - Debug) - ```cmake --build --preset linux-ninja-debug```
+🐧 Linux (Ninja - Debug) - ```cmake --build --preset linux-ninja-debug -j $(nproc)```
