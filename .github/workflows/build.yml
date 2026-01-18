@@ -3,6 +3,10 @@ name: Build
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - code/**
+      - CMakeLists.txt
+      - CMakePresets.json
   pull_request:
     branches: [ "main" ]
 
@@ -35,5 +39,12 @@ jobs:
       - name: Configure
         run: cmake --preset ${{ matrix.configure-preset }}
 
-      - name: Build
-        run: cmake --build --preset ${{ matrix.build-preset }}
+      - name: Build (Linux)
+        if: matrix.os == 'ubuntu-latest'
+        run: cmake --build --preset ${{ matrix.build-preset }} -j $(nproc)
+
+      - name: Build (Windows)
+        if: matrix.os == 'windows-latest'
+        run: cmake --build --preset ${{ matrix.build-preset }} -j %NUMBER_OF_PROCESSORS%
+        shell: cmd
+
