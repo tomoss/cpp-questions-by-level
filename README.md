@@ -8,6 +8,7 @@ A collection of C++ questions with answers and code examples.
 
 ### Level 1
 
+- [3. Difference between class and struct in C++? What is the difference between struct in C and in C++?](questions/level-1/3-struct-and-class.md)
 - [11. What Is a Default Constructor?](questions/level-1/11-default-constructor.md)
 - [13. What is a destructor, and when is it called?](questions/level-1/13-destructor.md)
 - [16. What are friend functions and friend classes?](questions/level-1/16-friend-keyword.md)
