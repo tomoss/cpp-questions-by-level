@@ -1,7 +1,4 @@
 #!/usr/bin/env python3
-from __future__ import annotations
-
-import argparse
 from pathlib import Path
 from collections import defaultdict
 import sys
@@ -10,13 +7,16 @@ import re
 GEN_START = "<!-- GENERATED:START -->"
 GEN_END = "<!-- GENERATED:END -->"
 
-
 def read_title(md_file: Path) -> str:
-    for line in md_file.read_text(encoding="utf-8").splitlines():
-        if line.startswith("# "):
-            return line[2:].strip()
-    raise RuntimeError(f"{md_file} has no top-level title (# ...)")
-
+    """
+    Extract the title from a markdown file, 
+    which is the first line starting with "#"
+    """
+    with md_file.open(encoding="utf-8") as file:
+        first_line = file.readline().rstrip("\n")
+    if first_line.startswith("# "):
+        return first_line[2:].strip()
+    raise RuntimeError(f"{md_file} has no top-level title on the first line")   
 
 def extract_question_number(title: str) -> int:
     """
@@ -24,23 +24,23 @@ def extract_question_number(title: str) -> int:
     '10. Question text'
     Returns a large value if no leading number is present.
     """
-    match = re.match(r"\s*(\d+)\s*\.", title)
-    return int(match.group(1)) if match else 10**9
+    number_part = title.split(".", 1)[0]
+    if not number_part.isdigit():
+        raise ValueError(f"Invalid title format: {title}")
+    return int(number_part)
 
 
 def scan_questions(root: Path):
     questions = defaultdict(list)
 
     for md in sorted(root.rglob("*.md")):
-        if md.name.lower() == "index.md":
-            continue
         category = md.parent.name.replace("-", " ").title()
         title = read_title(md)
         questions[category].append((title, md))
 
     for cat in questions:
         questions[cat].sort(
-            key=lambda x: (extract_question_number(x[0]), x[0].lower())
+            key=lambda x: (extract_question_number(x[0]))
         )
 
     return dict(sorted(questions.items()))
@@ -48,7 +48,6 @@ def scan_questions(root: Path):
 
 def render_index(questions: dict[str, list[tuple[str, Path]]]) -> str:
     lines = []
-    lines.append("## Questions\n")
 
     for category, items in questions.items():
         lines.append(f"### {category}\n")
@@ -78,13 +77,8 @@ def replace_generated_block(readme: str, generated: str) -> str:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--questions", default="questions")
-    parser.add_argument("--readme", default="README.md")
-    args = parser.parse_args()
-
-    questions_dir = Path(args.questions)
-    readme_path = Path(args.readme)
+    questions_dir = Path("questions")
+    readme_path = Path("README.md")
 
     if not questions_dir.exists():
         print("questions/ directory not found", file=sys.stderr)

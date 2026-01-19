@@ -2,9 +2,9 @@
 
 A collection of C++ questions with answers and code examples.
 
-<!-- GENERATED:START -->
-
 ## Questions
+
+<!-- GENERATED:START -->
 
 ### Level 1
 
