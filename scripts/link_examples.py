@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-from __future__ import annotations
 
 from pathlib import Path
 import sys
@@ -7,7 +6,7 @@ import sys
 SECTION_TITLE = "## 🧪 Code example"
 
 
-def example_link(md_path: Path) -> str:
+def build_example_link(md_path: Path) -> str:
     """
     Build relative link from questions/<level>/<name>.md
     to code/<level>/<name>/
@@ -20,7 +19,8 @@ def example_link(md_path: Path) -> str:
 
 def process_markdown(md_path: Path) -> bool:
     """
-    Returns True if file was modified
+    Returns False if file has the example link already added.
+    Otherwise, appends the link and returns True.
     """
     text = md_path.read_text(encoding="utf-8")
 
@@ -29,7 +29,7 @@ def process_markdown(md_path: Path) -> bool:
 
     lines = text.rstrip() + "\n\n"
     lines += SECTION_TITLE + "\n"
-    lines += example_link(md_path)
+    lines += build_example_link(md_path)
 
     md_path.write_text(lines, encoding="utf-8")
     return True
