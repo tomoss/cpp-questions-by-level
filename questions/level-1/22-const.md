@@ -225,3 +225,6 @@ int main() {
 ```
 
 ---
+
+## 🧪 Code example
+- [`../../code/level-1/22-const`](../../code/level-1/22-const)
