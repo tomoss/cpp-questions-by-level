@@ -13,6 +13,7 @@ A collection of C++ questions with answers and code examples.
 - [13. What is a destructor, and when is it called?](questions/level-1/13-destructor.md)
 - [16. What are friend functions and friend classes?](questions/level-1/16-friend-keyword.md)
 - [17. What is the `this` pointer?](questions/level-1/17-this-pointer.md)
+- [22. Explain const correctness (const int*, int* const, const methods).](questions/level-1/22-const.md)
 - [25. Can we overload the ```main()``` function?](questions/level-1/25-main-function.md)
 - [30. What are namespaces in C++? Why do we use them?](questions/level-1/30-namespaces.md)
 
