@@ -148,3 +148,6 @@ int main() {
 ```
 
 ---
+
+## 🧪 Code example
+- [`../../code/level-1/12-virtual-constructor`](../../code/level-1/12-virtual-constructor)
