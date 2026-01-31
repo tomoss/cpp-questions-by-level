@@ -1,15 +1,13 @@
 {
   "version": 3,
-
   "cmakeMinimumRequired": {
     "major": 3,
     "minor": 21,
     "patch": 0
   },
-
   "configurePresets": [
     {
-      "name": "base-config",
+      "name": "base-debug",
       "hidden": true,
       "binaryDir": "${sourceDir}/build/${presetName}",
       "cacheVariables": {
@@ -18,89 +16,98 @@
         "CMAKE_CXX_EXTENSIONS": "OFF"
       }
     },
-
     {
-      "name": "linux-ninja-debug",
-      "displayName": "Linux (Ninja) - Debug",
-      "inherits": "base-config",
+      "name": "linux-gcc-debug",
+      "inherits": "base-debug",
+      "generator": "Ninja",
       "condition": {
         "type": "equals",
         "lhs": "${hostSystemName}",
         "rhs": "Linux"
       },
-      "generator": "Ninja",
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Debug"
-      }
-    },
-
-    {
-      "name": "linux-ninja-release",
-      "displayName": "Linux (Ninja) - Release",
-      "inherits": "linux-ninja-debug",
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Release"
-      }
-    },
-
-    {
-      "name": "windows-msvc-base",
-      "hidden": true,
-      "inherits": "base-config",
-      "condition": {
-        "type": "equals",
-        "lhs": "${hostSystemName}",
-        "rhs": "Windows"
-      },
-      "generator": "Visual Studio 17 2022"
-    },
-
-    {
-      "name": "windows-msvc",
-      "displayName": "Windows (MSVC VS 2022)",
-      "inherits": "windows-msvc-base"
-    },
-
-    {
-      "name": "windows-mingw-debug",
-      "displayName": "Windows (MinGW) - Debug",
-      "inherits": "base-config",
-      "condition": {
-        "type": "equals",
-        "lhs": "${hostSystemName}",
-        "rhs": "Windows"
-      },
-      "generator": "MinGW Makefiles",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
         "CMAKE_C_COMPILER": "gcc",
         "CMAKE_CXX_COMPILER": "g++"
       }
-    }
-  ],
-
-  "buildPresets": [
-    {
-      "name": "linux-ninja-debug",
-      "configurePreset": "linux-ninja-debug"
     },
     {
-      "name": "linux-ninja-release",
-      "configurePreset": "linux-ninja-release"
+      "name": "linux-clang-debug",
+      "inherits": "base-debug",
+      "generator": "Ninja",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++"
+      }
+    },
+    {
+      "name": "windows-mingw-gcc-debug",
+      "inherits": "base-debug",
+      "generator": "Ninja",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_C_COMPILER": "gcc",
+        "CMAKE_CXX_COMPILER": "g++"
+      }
+    },
+    {
+      "name": "windows-mingw-clang-debug",
+      "inherits": "base-debug",
+      "generator": "Ninja",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++"
+      }
     },
     {
       "name": "windows-msvc-debug",
-      "configurePreset": "windows-msvc",
+      "inherits": "base-debug",
+      "generator": "Visual Studio 17 2022",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "linux-gcc-debug",
+      "configurePreset": "linux-gcc-debug"
+    },
+    {
+      "name": "linux-clang-debug",
+      "configurePreset": "linux-clang-debug"
+    },
+    {
+      "name": "windows-mingw-gcc-debug",
+      "configurePreset": "windows-mingw-gcc-debug"
+    },
+    {
+      "name": "windows-mingw-clang-debug",
+      "configurePreset": "windows-mingw-clang-debug"
+    },
+    {
+      "name": "windows-msvc-debug",
+      "configurePreset": "windows-msvc-debug",
       "configuration": "Debug"
-    },
-    {
-      "name": "windows-msvc-release",
-      "configurePreset": "windows-msvc",
-      "configuration": "Release"
-    },
-    {
-      "name": "windows-mingw-debug",
-      "configurePreset": "windows-mingw-debug"
     }
   ]
 }
