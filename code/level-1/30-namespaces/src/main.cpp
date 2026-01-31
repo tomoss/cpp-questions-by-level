@@ -60,7 +60,7 @@ namespace Company {
                 std::cout << "Rendering 3D graphics..." << std::endl;
             }
         } // namespace D3
-    }     // namespace Graphics
+    } // namespace Graphics
 } // namespace Company
 
 // C++17 style nested namespace

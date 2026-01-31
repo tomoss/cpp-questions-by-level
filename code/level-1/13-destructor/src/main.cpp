@@ -48,7 +48,7 @@ public:
     }
     virtual ~Shape() {
         std::cout << "Shape destructor\n";
-    }                        // Virtual!
+    } // Virtual!
     virtual void draw() = 0; // Pure virtual function
 };
 

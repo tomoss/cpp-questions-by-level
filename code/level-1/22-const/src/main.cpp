@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <vector>
 
 // CONST CONSTANTS
 const float APP_VERSION = 2.1f;

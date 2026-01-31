@@ -2,13 +2,14 @@ name: Build
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
     paths:
       - code/**
       - CMakeLists.txt
       - CMakePresets.json
+      - .github/workflows/build.yml
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build:
@@ -19,32 +20,63 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # Linux (Ninja, single-config)
+          # ---------- Linux ----------
           - os: ubuntu-latest
-            configure-preset: linux-ninja-debug
-            build-preset: linux-ninja-debug
+            configure-preset: linux-gcc-debug
+            build-preset: linux-gcc-debug
 
-          # Windows (MSVC, multi-config)
+          - os: ubuntu-latest
+            configure-preset: linux-clang-debug
+            build-preset: linux-clang-debug
+
+          # ---------- Windows MinGW ----------
           - os: windows-latest
-            configure-preset: windows-msvc
+            configure-preset: windows-mingw-gcc-debug
+            build-preset: windows-mingw-gcc-debug
+            sys: ucrt64
+
+          - os: windows-latest
+            configure-preset: windows-mingw-clang-debug
+            build-preset: windows-mingw-clang-debug
+            sys: clang64
+
+          # ---------- Windows MSVC ----------
+          - os: windows-latest
+            configure-preset: windows-msvc-debug
             build-preset: windows-msvc-debug
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup CMake
         uses: lukka/get-cmake@latest
 
+      - name: Setup MSYS2 (Windows)
+        if: startsWith(matrix.build-preset, 'windows-mingw')
+        uses: msys2/setup-msys2@v2
+        with:
+          msystem: ${{ matrix.sys }}
+          path-type: inherit
+          # If sys is 'ucrt64', we install the GCC toolchain for UCRT.
+          # If sys is 'clang64', we install the Clang toolchain for UCRT.
+          install: >-
+            ${{ matrix.sys == 'ucrt64' && 'mingw-w64-ucrt-x86_64-gcc' || 'mingw-w64-clang-x86_64-clang' }}
+            mingw-w64-ucrt-x86_64-ninja
+          update: true
+
+      - name: Determine threads (Linux)
+        if: runner.os == 'Linux'
+        # Write to GITHUB_ENV to persist the variable
+        run: echo "THREADS=$(nproc)" >> $GITHUB_ENV
+
+      - name: Determine threads (Windows)
+        if: runner.os == 'Windows'
+        # PowerShell syntax to write to GITHUB_ENV
+        run: echo "THREADS=$env:NUMBER_OF_PROCESSORS" >> $env:GITHUB_ENV
+
       - name: Configure
         run: cmake --preset ${{ matrix.configure-preset }}
 
-      - name: Build (Linux)
-        if: matrix.os == 'ubuntu-latest'
-        run: cmake --build --preset ${{ matrix.build-preset }} -j $(nproc)
-
-      - name: Build (Windows)
-        if: matrix.os == 'windows-latest'
-        run: cmake --build --preset ${{ matrix.build-preset }} -j %NUMBER_OF_PROCESSORS%
-        shell: cmd
-
+      - name: Build
+        run: cmake --build --preset ${{ matrix.build-preset }} --parallel ${{ env.THREADS }}
