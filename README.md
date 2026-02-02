@@ -43,16 +43,25 @@ A collection of C++ questions with answers and code examples.
 
 ### Configure Workspace (Run Once)
 
-🖥️ Windows (MSVC) - ```cmake --preset windows-msvc```
+🖥️ Windows – MSVC (Visual Studio 2022) - ```cmake --preset windows-msvc-debug```
 
-🖥️ Windows (MinGW - Debug) - ```cmake --preset windows-mingw-debug ```
+🖥️ Windows – MinGW (GCC, Debug) - ```cmake --preset windows-mingw-gcc-debug```
 
-🐧 Linux (Ninja - Debug) - ```cmake --preset linux-ninja-debug```
+🖥️ Windows – MinGW (Clang, Debug) - ```cmake --preset windows-mingw-clang-debug```
+
+🐧 Linux – GCC (Ninja, Debug) - ```cmake --preset linux-gcc-debug```
+
+🐧 Linux – Clang (Ninja, Debug) - ```cmake --preset linux-clang-debug```
 
 ### Build All (Debug)
 
-🖥️ Windows (MSVC) - ```cmake --build --preset windows-msvc-debug```
+🖥️ Windows – MSVC - ```cmake --build --preset windows-msvc-debug --parallel```
 
-🖥️ Windows (MinGW - Debug) - ```cmake --build --preset windows-mingw-debug```
+🖥️ Windows – MinGW (GCC) - ```cmake --build --preset windows-mingw-gcc-debug --parallel```
 
-🐧 Linux (Ninja - Debug) - ```cmake --build --preset linux-ninja-debug -j $(nproc)```
+🖥️ Windows – MinGW (Clang) - ```cmake --build --preset windows-mingw-clang-debug --parallel```
+
+🐧 Linux – GCC - ```cmake --build --preset linux-gcc-debug --parallel```
+
+🐧 Linux – Clang - ```cmake --build --preset linux-clang-debug --parallel```
+
