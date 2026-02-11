@@ -19,7 +19,7 @@ A destructor is a special member function that is called when the lifetime of an
 * **Name** →  Same as class name, preceded by ```~```
 * **Return type** → None (not even ```void```)
 * **Parameters** → None
-* **Overloading** → Not allowed — Only one destructor per class
+* **Overloading** → Not allowed, only one destructor per class
 * **Access specifier** → ```public```, unless you have a specific reason not to
 * **Virtual allowed** → Yes (for polymorphic classes)
 * **No exceptions** → Destructors should not throw exceptions (marked ```noexcept``` by default in C++11+)

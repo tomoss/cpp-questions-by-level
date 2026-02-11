@@ -242,7 +242,7 @@ P::run();
 
 ## 💡 Anonymous (unnamed) namespaces
 
-An unnamed namespace automatically gives internal linkage to everything inside it — meaning it’s visible only in the current translation unit (file).
+An unnamed namespace automatically gives internal linkage to everything inside it, meaning it’s visible only in the current translation unit (file).
 
 In simpler terms, an unnamed namespace makes its contents visible only within the current file. Think of it as a way to create "file-private" functions and variables.
 

@@ -12,7 +12,7 @@
 - The type of `this`:
   - In a non-const member function: `ClassName* const`
   - In a const member function: `const ClassName* const`
-- `this` itself is a const pointer — it cannot be reassigned
+- `this` itself is a const pointer, it cannot be reassigned
 
 ---
 

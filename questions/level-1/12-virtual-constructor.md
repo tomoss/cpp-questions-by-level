@@ -2,7 +2,7 @@
 
 ## ❓ Short Answer
 
-No — in C++, constructors **cannot be virtual**.
+No, in C++, constructors **cannot be virtual**.
 
 Attempting to declare a constructor `virtual` will result in a compile-time error.
 

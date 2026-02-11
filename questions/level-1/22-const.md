@@ -151,7 +151,7 @@ void printEntity(const Entity& e) {
 
 ## 6️⃣ Const methods and mutable data members
 
-Sometimes, a method is logically const but still needs to modify a member that doesn’t affect the observable state — like a counter for logging.
+Sometimes, a method is logically const but still needs to modify a member that doesn’t affect the observable state, like a counter for logging.
 
 For example, we want to track how many times `getArea()` is called, but the method is const and updating the counter violates const rules.
 

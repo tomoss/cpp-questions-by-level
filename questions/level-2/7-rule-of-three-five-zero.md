@@ -45,7 +45,7 @@ Unlike Rule of Three, failing to provide move constructor and move assignment op
 
 ## 💡 Rule of Zero (C++11 and later)
 
-If your class doesn’t directly manage resources, don’t define any special member functions — let the compiler generate them automatically.
+If your class doesn’t directly manage resources, don’t define any special member functions, let the compiler generate them automatically.
 
 This is the modern C++ approach and should be your default choice.
 

@@ -218,7 +218,7 @@ You can declare a template type parameter using `class` or `typename`, but you c
 
 In C++:
 
-> class and struct are almost identical — the only important differences are default access (public vs private) and convention (data-focused vs behavior-focused).
+> class and struct are almost identical, the only important differences are default access (public vs private) and convention (data-focused vs behavior-focused).
 
 The choice between them is primarily about expressing intent to other developers.
 

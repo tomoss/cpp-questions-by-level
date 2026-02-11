@@ -11,7 +11,7 @@ In other words:
 * A resource is acquired (allocated/opened) in an object’s constructor.
 * That resource is released (freed/closed) in the object’s destructor.
 
-This ensures that resources are **automatically released** when the object goes out of scope — even if exceptions occur.
+This ensures that resources are **automatically released** when the object goes out of scope, even if exceptions occur.
 
 In modern C++, most application-level code avoids raw ```new``` or ```delete``` precisely because RAII objects like → ```std::unique_ptr```, ```std::shared_ptr```, ```std::vector```, ```std::string```, ```std::ifstream```, and ```std::lock_guard``` manage resources for you.
 

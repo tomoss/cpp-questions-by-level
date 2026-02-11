@@ -2,7 +2,7 @@
 
 ## 💡Definition
 
-An **inline namespace** is a C++ feature (introduced in C++11) where a nested namespace is declared with the inline keyword. This makes all members of that nested namespace behave—for lookup and access purposes—as if they were members of the enclosing namespace.
+An **inline namespace** is a C++ feature (introduced in C++11) where a nested namespace is declared with the inline keyword. This makes all members of that nested namespace behave (for lookup and access purposes) as if they were members of the enclosing namespace.
 
 ---
 
