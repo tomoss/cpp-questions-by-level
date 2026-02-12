@@ -44,7 +44,7 @@ These are *temporary* in the purest sense. They are often literals or the result
 
 * **No Identity:** You cannot take its address directly (`&5` is invalid).
 * **Assignment:** A prvalue expression cannot be the left-hand side (LHS) of an assignment.
-* **Usage:** Usually appears on the right-hand side (RHS) of assignment.
+* **Usage:** Appears on the right-hand side (RHS) of assignment.
 
 ```cpp
 int x = 10;        // 10 is a prvalue
@@ -60,12 +60,16 @@ An xvalue is an object that has an identity (it lives somewhere in memory) but i
 
 * **Source:** Most commonly created via `std::move`.
 * **Important:** `std::move` does not move anything by itself, it just casts to an xvalue.
+* **Assignment:** Can be on left-hand side (LHS) because they have identity. However, assigning to an xvalue is almost never what you want to do.
 * **The Trap:** Even though an xvalue has identity, the language forbids taking its address with `&` to prevent you from holding a pointer to something that is about to be moved or destroyed.
 
 
 ```cpp
 std::string s = "Hello";
-// std::move(s) is an xvalue. It has identity (it's 's'), but it's marked as moveable.
+std::string t = std::move(s);  // std::move(s) is an xvalue
+
+std::move(s) = "World";        // OK: xvalue CAN be assigned to (has identity)
+// int* p = &std::move(s);     // ERROR: cannot take address of xvalue (even though it has identity)
 ```
 
 ---
