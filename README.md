@@ -21,6 +21,7 @@ A collection of C++ questions with answers and code examples.
 ### Level 2
 
 - [7. Explain Rule of 3, Rule of 5, Rule of 0.](questions/level-2/7-rule-of-three-five-zero.md)
+- [9. Difference between lvalue and rvalue?](questions/level-2/9-lvalues-rvalues.md)
 - [15. What is a dangling pointer?](questions/level-2/15-dangling-pointer.md)
 - [20. What is object slicing?](questions/level-2/20-object-slicing.md)
 - [21. What is multiple inheritance? What are the problems with it?](questions/level-2/21-multiple-inheritance.md)
