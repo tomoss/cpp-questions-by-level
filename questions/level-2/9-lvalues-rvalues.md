@@ -180,5 +180,50 @@ int&& rref2 = std::move(x); // OK: binds to xvalue
 
 ---
 
+## 💡 The Rvalue Reference Paradox
+
+This example demonstrates the critical distinction between a variable type and its value category.
+
+```cpp
+#include <iostream>
+#include <utility>
+
+void process(int& x) {
+    std::cout << "Called for: lvalue\n";
+}
+
+void process(int&& x) {
+    std::cout << "Called for: rvalue\n";
+}
+
+void handle(int&& param) {
+    // This is where the paradox occurs
+    process(param); 
+}
+
+int main() {
+    handle(100); // 100 is a prvalue
+}
+```
+**Result:** Called for: lvalue
+
+### 🔹Why `process(param)` calls the lvalue overload
+
+* **The Naming Rule:** If an expression has a name, it has identity. Therefore, it is an lvalue.
+* **Type vs. Category:** While param has the type `int&&` (rvalue reference), the expression param is an lvalue because it refers to a persistent object with a name.
+* **Safety Design:** The compiler treats named rvalue references as lvalues to prevent you from accidentally using a variable after its resources have been moved.
+
+### 🔹The "Fix" (Restoring Rvalue-ness)
+
+To treat param as an rvalue again (enabling move semantics), you must explicitly cast it back using `std::move()`
+
+```cpp
+void handle(int&& param) {
+    process(std::move(param)); // Now calls the rvalue overload
+}
+```
+
+---
+
 ## 🧪 Code example
 - [`../../code/level-2/9-lvalues-rvalues`](../../code/level-2/9-lvalues-rvalues)
