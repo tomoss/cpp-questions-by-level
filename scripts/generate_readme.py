@@ -2,21 +2,20 @@
 from pathlib import Path
 from collections import defaultdict
 import sys
-import re
 
 GEN_START = "<!-- GENERATED:START -->"
 GEN_END = "<!-- GENERATED:END -->"
 
 def read_title(md_file: Path) -> str:
     """
-    Extract the title from a markdown file, 
+    Extract the title from a markdown file,
     which is the first line starting with "#"
     """
     with md_file.open(encoding="utf-8") as file:
         first_line = file.readline().rstrip("\n")
     if first_line.startswith("# "):
         return first_line[2:].strip()
-    raise RuntimeError(f"{md_file} has no top-level title on the first line")   
+    raise RuntimeError(f"{md_file} has no top-level title on the first line")
 
 def extract_question_number(title: str) -> int:
     """
